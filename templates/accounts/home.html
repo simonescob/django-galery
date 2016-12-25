@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block content %}
+	<h1>Usuario: {{user.username}} 
+	Nombre: {{user.last_name}}
+	Apellido: {{user.first_name}} 
+	Correo: {{user.email}}</h1>
+
+	{% for p in profile %}
+		{% if p.photo %}
+			<img src="{{MEDIA_URL}}{{p.photo}}" alt="">
+		{% elif not p.photo %}
+			<img src="{% static 'img/car.jpg' %}" alt="Simon">
+		{% endif %}
+		
+		{% empty %}
+		<img src="{% static 'img/car.jpg' %}" alt="Simon">
+	{% endfor %}
+
+	<form action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" value="cambiar">
+	</form>
+{% endblock content %}

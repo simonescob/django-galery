@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form action="" method="POST">
+		<h1>edita tu cuenta</h1>
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" id="btn" value="Guardar">
+	</form>
+{% endblock content %}

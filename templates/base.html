@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	{% load staticfiles %}
+	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock title %}</title>
+	<link rel="stylesheet" href="{% static 'css/barra.css' %}">
+	<link rel="stylesheet" href="{% static 'css/cont.css' %}">
+	<style>
+	body{font-family: 'Lato';}
+	img{max-width:350px;}
+	/*h1{font-size: 50px;}*/
+	.inputfile{width: 190px; color: black; display: flex;
+		flex-direction: row;
+		border: none; background: #3EF747;}
+	.inputfile::-webkit-file-upload-button {
+	  /*visibility: hidden;*/
+	  border: none;
+	  font-size: 20px;
+	  background: inherit;
+	}
+	a{text-decoration:none; color: black;}
+	input{border:none; border: 2px solid; padding:5px; border-radius: 10px}
+	.helptext{font-size: 12px}
+	a.btn-a{text-decoration:none; color: black; background: #38F24E; padding: 5px 10px; border-radius: 10px;}
+	.btn{border: none; background: #33BBF3; color:black; padding: 5px 10px; border-radius: 10px; font-size: 30px}
+	.btn-borrar{border: none; background: #F5213F; color:black; padding: 5px 10px; border-radius: 10px; font-size: 30px;}</style>
+</head>
+<body>
+
+	<div class="barra">
+		{% if request.user.is_authenticated %}
+			<a href="/" style="font-size:30px;">{{request.user|title}}</a>
+			{% if request.user.is_superuser %}
+			<a href="/administrator/">admin</a>
+			{% endif %}
+			<a href="/noti/">Notificationes</a>
+			<a href="/fotos/{{request.user}}/">Ver fotos</a>
+			<a href="/logout/">Salir</a>
+			<a href="/edit/">Editar</a>
+		{% endif %}
+	</div>
+
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+			{% if message.tags == 'success' %}
+				<li style="color:#3BF351; font-size: 20px;">{{ message }}</li>
+			{% elif message.tags == 'error' %}
+				<li style="color:#ED4343;">{{ message }}</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% block content %}{% endblock content %}
+
+</body>
+</html>

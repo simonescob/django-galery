@@ -1,0 +1,45 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Lato'; }
+
+.link a {
+  padding: 5px;
+  text-decoration: none;
+  color: black; }
+.link a:hover {
+  background: white;
+  border-radius: 2px; }
+
+.barra {
+  padding: 10px;
+  background: #40EF59;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
+  .barra li {
+    color: black;
+    list-style-type: none; }
+
+.alert {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer; }
+
+.msj, .success, .error, .ward {
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px; }
+
+.success {
+  background: #40EF59; }
+
+.error {
+  background: #F62E2E; }
+
+.ward {
+  background: #F4EC1B; }
+
+/*# sourceMappingURL=barra.css.map */

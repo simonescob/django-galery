@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+	<div class="cont link">
+		<a href="/fotos/{{request.user}}/">Volver</a>
+		<img src="{{MEDIA_URL}}{{img.imagen}}" alt="">
+		<div class="mini-cont link">
+			<a href="/fotos/{{request.user}}/{{img.id}}/edit/">Editar</a>
+			<a href="/fotos/{{request.user}}/{{img.id}}/edit/">Borrar</a>
+		</div>
+	</div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+  .content .cont {
+    margin-top: 10px;
+    width: 400px;
+    text-align: center;
+    border: 1px solid #30F262;
+    border-radius: 15px; }
+    .content .cont img {
+      max-width: 400px; }
+  .content .mini-cont {
+    border-radius: 0px 0px 15px 15px;
+    background: #30F262;
+    display: flex;
+    justify-content: space-around; }
+    .content .mini-cont a:visited {
+      text-decoration: none;
+      color: black; }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  form input, form input:focus {
+    outline: none;
+    border: none;
+    padding: 6px;
+    margin: 5px 0px;
+    border: 2px solid #30F262;
+    border-radius: 8px; }
+  .helptext {
+    display: none; }
+  form input#btn {
+    background: #30F262;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer; }
+/*# sourceMappingURL=cont.css.map */

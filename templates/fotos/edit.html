@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  <img src="{{MEDIA_URL}}{{img.imagen}}" alt="">
+  <!--<h1>{{MEDIA_URL}}{{img}}</h1>-->
+
+	<form action="" method="POST" enctype="multipart/form-data">
+		<h1>edita tu cuenta</h1>
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" id="btn" value="Guardar">
+	</form>
+{% endblock content %}

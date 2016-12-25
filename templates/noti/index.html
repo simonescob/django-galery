@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+<!-- 	<div class="content">
+		<div class="cont">
+			<h1>Username title</h1>
+			<img src="{% static 'img/car.jpg'%}" alt="">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus delectus fuga doloremque, cumque atque quam debitis doloribus. Explicabo nesciunt, delectus consequatur et aspernatur ea aut tempora obcaecati excepturi dolores rerum!</p>
+			<div class="mini-cont link">
+				<p><a href="#" id="like">Me gusta</a></p>
+				<p><a href="#" >comenta</a></p>
+			</div>
+		</div>
+	</div> -->
+	<form action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{form.as_table}}
+		<input type="submit" value="Publicar">
+	</form>
+
+	<div class="content">
+		{% for n in noti %}
+		<div class="cont">
+			<h2>{{n.user}}</h2>
+			<img src="{{MEDIA_URL}}{{n.image}}" alt="">
+			<p>{{n.text}}</p>
+			<div class="mini-cont link">
+				<p><a href="#" id="like">Me gusta</a></p>
+				<p><a href="#" >comenta</a></p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	
+{% endblock content %}

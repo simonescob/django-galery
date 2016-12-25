@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>funciona!!</h1>
+	<form action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{form.as_table}}
+		<input type="submit" value="subir">
+	</form>
+
+	{% for foto in fotos %}
+		<!-- <h1>{{foto.imagen}}</h1> -->
+		<a href="/fotos/{{foto.user}}/{{foto.id}}/"><img src="{{MEDIA_URL}}{{foto.imagen}}" alt=""></a>
+	{% endfor %}
+
+{% endblock content %}
